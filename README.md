@@ -14,9 +14,12 @@ Configuración del Proyecto:
 
 Para ejecutar el proyecto:
 
-    Importante npm install antes de nada
+BACK: 
     Moverse al directorio Back-end y probar la configuración con la base de datos antes que nada mediante el comando "node config/dbConfig.ts"
     Arrancar el back mediante el comando "node app.js"
+
+FRONT:
+    Importante npm install antes de nada
     Abrir otra terminal y moverse al directorio Front-end/front-end-peliculas y arrancar el front mediante el comando "ng s -o"
     En este proceso si aparece algún error simplemente sera cuestión de alguna dependencia, bastara con leer el error e instalar la dependencia correspondiente.
 
