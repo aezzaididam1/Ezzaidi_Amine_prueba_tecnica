@@ -1,18 +1,18 @@
-Tecnologías Utilizadas
+Tecnologías Utilizadas:
     Angular
     Node.js Express
     MYSQL
     Otras dependencias específicas (como mysql, axios, etc.)
 
 
-Configuración del Proyecto
+Configuración del Proyecto: 
     Requisitos Previos
         Un IDE que en mi caso es VScode
         Node.js instalado
         MySQL instalado y configurado con una base de datos
         Angular CLI
 
-Para ejecutar el proyecto
+Para ejecutar el proyecto:
 
     Importante npm install antes de nada
     Moverse al directorio Back-end y probar la configuración con la base de datos antes que nada mediante el comando "node config/dbConfig.ts"
