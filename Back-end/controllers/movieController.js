@@ -15,7 +15,9 @@ const getMovies = async (req, res) => {
       imdbID: movie.imdbID,
       title: movie.Title,
       year: movie.Year,
-      plot: 'N/A'
+      plot: 'N/A', 
+      rating: null // Inicialmente no hay rating
+
     }));
 
     for (const movie of movies) {
@@ -40,11 +42,32 @@ const getMovies = async (req, res) => {
 const getAllMovies = (req, res) => {
   Movie.getAllMovies((err, movies) => {
     if (err) {
+      console.error('Error al obtener películas de la base de datos:', err.message);
       res.status(500).json({ error: 'Error al obtener movies de la base de datos' });
     } else {
       res.status(200).json(movies);
     }
   });
 };
+
+const updateMovieRating = (req, res) => {
+  const { imdbID, ratingValue } = req.params;
+
+  const rating = Number(ratingValue);
+
+  if (isNaN(rating) || rating < 1 || rating > 10) {
+    return res.status(400).json({ error: 'El valor de la puntuación debe estar entre 1 y 10' });
+  }
+
+  Movie.updateMovieRating(imdbID, rating, (err, result) => {
+    if (err) {
+      console.error('Error al actualizar el rating de la película:', err.message);
+      res.status(500).json({ error: 'Error al actualizar el rating de la película' });
+    } else {
+      res.status(200).json({ message: 'Rating actualizado correctamente' });
+    }
+  });
+};
+
 
 module.exports = { getMovies, getAllMovies };
