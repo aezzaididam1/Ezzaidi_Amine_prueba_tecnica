@@ -12,9 +12,19 @@ const Movie = {
   },
 
   insertMovie: (movie, callback) => { // Metodo para insertar registros en la tabla movies 
-    const query = 'INSERT INTO movies (imdbID, title, year, plot) VALUES (?, ?, ?, ?)';
-    const { imdbID, title, year, plot } = movie;
-    db.query(query, [imdbID, title, year, plot], (err, results) => {
+    const { imdbID, title, year, plot, rating } = movie;
+    const query = 'INSERT INTO movies (imdbID, title, year, plot, rating) VALUES (?, ?, ?, ?, ?)';
+    db.query(query, [imdbID, title, year, plot,rating], (err, results) => {
+      if (err) {
+        return callback(err, null);
+      }
+      callback(null, results);
+    });
+  },
+
+  updateMovieRating: (imdbID, rating, callback) => {
+    const query = 'UPDATE movies SET rating = ? WHERE imdbID = ?';
+    db.query(query, [rating, imdbID], (err, results) => {
       if (err) {
         return callback(err, null);
       }
@@ -22,5 +32,6 @@ const Movie = {
     });
   }
 };
+
 
 module.exports = Movie; // Se exoprta para poder usarse en otros sitios
