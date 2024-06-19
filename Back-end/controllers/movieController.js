@@ -70,4 +70,5 @@ const updateMovieRating = (req, res) => {
 };
 
 
-module.exports = { getMovies, getAllMovies };
+module.exports = { getMovies, getAllMovies, updateMovieRating };
+
