@@ -6,7 +6,7 @@
   "scripts": {
     "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
     "start:backend": "cd Back-end && npm install && npm install cors && node app.js",
-    "start:frontend": "cd Front-end/front-end-peliculas && npm install && ng serve",
+    "start:frontend": "cd Front-end/front-end-peliculas && npm install && ng serve -o",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
